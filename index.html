@@ -11,21 +11,18 @@
 
   h1, h2, h3 { font-family: 'Bebas Neue', sans-serif; letter-spacing: 2px; color: #F2F2F2; }
 
-  /* HEADER AJUSTADO */
   header {
     position: fixed; width: 100%; padding: 20px 5%; display: flex; justify-content: space-between; align-items: center;
     background: rgba(13,13,13,0.98); border-bottom: 1px solid #1A1A1A; z-index: 100;
   }
   header h1 { font-size: 24px; }
-  nav { display: flex; gap: 30px; } /* AUMENTEI A DISTÂNCIA DOS BOTÕES */
+  nav { display: flex; gap: 30px; }
   nav a { color: #B3B3B3; text-decoration: none; font-weight: 600; font-size: 14px; transition: 0.3s; }
   nav a:hover { color: #F2F2F2; }
 
-  /* MENU MOBILE */
   @media (max-width: 768px) {
     header { flex-direction: column; padding: 15px 5%; gap: 12px; }
     nav { gap: 18px; flex-wrap: wrap; justify-content: center; }
-    nav a { font-size: 12px; }
   }
 
   /* 1. HERO */
@@ -36,22 +33,164 @@
     padding-top: 80px;
   }
   .hero h2 { font-size: 90px; line-height: 1; margin-bottom: 20px; }
-  .hero p { font-size: 18px; color: #B3B3B3; margin-bottom: 40px; max-width: 500px; margin-left: auto; margin-right: auto; }
+  .hero p { font-size: 18px; color: #B3B3B3; margin-bottom: 40px; max-width: 500px; margin: 0 auto 40px; }
   .btn-primary {
     background: #F2F2F2; color: #0D0D0D; padding: 16px 45px; text-decoration: none; font-weight: 700;
-    border-radius: 0; transition: 0.3s; font-size: 14px; letter-spacing: 2px; display: inline-block;
+    transition: 0.3s; font-size: 14px; letter-spacing: 2px; display: inline-block;
   }
   .btn-primary:hover { background: #B3B3B3; }
+  @media (max-width: 768px) { .hero h2 { font-size: 48px; } }
+
+  /* 2. SESSÃO SOBRE */
+  section { padding: 120px 8%; }
+  .sobre { 
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; background: #111; 
+  }
+  .sobre img { width: 100%; filter: grayscale(100%); border-radius: 4px; }
+  .sobre h3 { font-size: 60px; margin-bottom: 30px; }
+  .sobre p { color: #B3B3B3; line-height: 1.8; margin-bottom: 20px; font-size: 16px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+  .badge { background: #1A1A1A; padding: 10px 18px; font-size: 12px; font-weight: 600; border: 1px solid #222; }
+
   @media (max-width: 768px) {
-    .hero h2 { font-size: 48px; }
-    .hero p { font-size: 16px; padding: 0 20px; }
+    .sobre { grid-template-columns: 1fr; gap: 40px; padding: 80px 5%; }
+    .sobre h3 { font-size: 40px; }
+    .sobre img { order: -1; }
   }
 
-  /* 2. SOBRE - RESPONSIVO: COLUNA NO MOBILE */
-  section { padding: 100px 8%; }
-  .sobre { 
-    display: grid; 
-    grid-template-columns: 1fr 1fr; /* DESKTOP: LADO A LADO */
-    gap: 80px; 
-    align-items: center; 
-    background: #111
+  /* 3. SESSÃO DEPOIMENTOS */
+  .depoimentos { text-align: center; background: #0D0D0D; }
+  .depoimentos h3 { font-size: 60px; margin-bottom: 20px; }
+  .depoimentos .sub { color: #B3B3B3; margin-bottom: 60px; }
+  .testimonial-grid { 
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; 
+  }
+  .testimonial {
+    background: #1A1A1A; padding: 40px; border-left: 3px solid #F2F2F2; text-align: left;
+    transition: 0.3s;
+  }
+  .testimonial:hover { transform: translateY(-5px); border-color: #B3B3B3; }
+  .testimonial .quote { font-size: 50px; color: #333; line-height: 1; font-family: serif; }
+  .testimonial p { color: #B3B3B3; font-style: italic; margin: 20px 0; line-height: 1.7; }
+  .testimonial .autor { font-weight: 700; color: #F2F2F2; font-size: 14px; }
+
+  @media (max-width: 768px) {
+    .depoimentos h3 { font-size: 40px; }
+    .testimonial-grid { grid-template-columns: 1fr; }
+  }
+
+  /* 4. CONTATO */
+  footer { background: #000; padding: 80px 8% 40px; border-top: 1px solid #1A1A1A; }
+  .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px; margin-bottom: 50px; }
+  .footer-col h4 { font-size: 22px; margin-bottom: 20px; }
+  .footer-col p, .footer-col a { color: #B3B3B3; text-decoration: none; display: block; margin-bottom: 10px; }
+  .footer-col a:hover { color: #F2F2F2; }
+  .btn-whats {
+    background: #25D366; color: #000; padding: 12px 25px; display: inline-block; font-weight: 700; margin-top: 15px;
+  }
+  .copy { text-align: center; padding-top: 40px; border-top: 1px solid #1A1A1A; color: #555; font-size: 12px; }
+  @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr; text-align: center; } }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>CHARLES LECO</h1>
+  <nav>
+    <a href="#home">INÍCIO</a>
+    <a href="#sobre">SOBRE</a>
+    <a href="#depoimentos">DEPOIMENTOS</a>
+    <a href="#contato">CONTATO</a>
+  </nav>
+</header>
+
+<!-- 1. INÍCIO -->
+<section class="hero" id="home">
+  <div>
+    <h2>BARBEARIA<br>CHARLES LECO</h2>
+    <p>Corte clássico. Atendimento moderno. Em Santa Maria do Suaçuí.</p>
+    <a href="https://wa.me/553388172256?text=Olá!%20Gostaria%20de%20agendar%20um%20horário%20na%20Barbearia%20Charles%20Leco." 
+       target="_blank" class="btn-primary">AGENDAR AGORA</a>
+  </div>
+</section>
+
+<!-- 2. SESSÃO SOBRE -->
+<section class="sobre" id="sobre">
+  <div>
+    <h3>SOBRE NÓS</h3>
+    <p>Desde 2018 a Barbearia Charles Leco é referência em Santa Maria do Suaçuí quando o assunto é estilo masculino.</p>
+    <p>Unimos técnicas tradicionais de barbearia com as tendências mais atuais. Nosso compromisso é entregar um atendimento exclusivo, em um ambiente pensado para você relaxar e sair renovado.</p>
+    <p>Aqui cada corte é único, porque cada cliente é único.</p>
+    <div class="badges">
+      <span class="badge">CORTE CLÁSSICO</span>
+      <span class="badge">BARBA PREMIUM</span>
+      <span class="badge">ATENDIMENTO VIP</span>
+    </div>
+  </div>
+  <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=2070" alt="Interior Barbearia Charles Leco">
+</section>
+
+<!-- 3. SESSÃO DEPOIMENTOS -->
+<section class="depoimentos" id="depoimentos">
+  <h3>DEPOIMENTOS</h3>
+  <p class="sub">O que nossos clientes falam sobre nós</p>
+  <div class="testimonial-grid">
+    <div class="testimonial">
+      <div class="quote">“</div>
+      <p>"O melhor corte que já fiz na vida. O Charles entende exatamente o que a gente quer. Profissional top!"</p>
+      <div class="autor">- MARCOS SILVA</div>
+    </div>
+    <div class="testimonial">
+      <div class="quote">“</div>
+      <p>"Ambiente limpo, organizado e atendimento de primeira. Saio de lá sempre satisfeito. Recomendo demais."</p>
+      <div class="autor">- JOÃO PEDRO</div>
+    </div>
+    <div class="testimonial">
+      <div class="quote">“</div>
+      <p>"É a barbearia que Santa Maria do Suaçuí precisava. Qualidade e preço justo. Virou minha barbearia fixa."</p>
+      <div class="autor">- RAFAEL COSTA</div>
+    </div>
+    <div class="testimonial">
+      <div class="quote">“</div>
+      <p>"Barba feita com uma precisão absurda. Nunca vi igual. Dá pra ver que ele ama o que faz."</p>
+      <div class="autor">- LUCAS MENDES</div>
+    </div>
+    <div class="testimonial">
+      <div class="quote">“</div>
+      <p>"Frequento há 2 anos e nunca me decepcionou. Sempre atualizado com as tendências. 10/10"</p>
+      <div class="autor">- GUSTAVO ALVES</div>
+    </div>
+    <div class="testimonial">
+      <div class="quote">“</div>
+      <p>"Além de cortar muito bem, o papo é ótimo. Virou meu momento pra relaxar na semana."</p>
+      <div class="autor">- THIAGO ROCHA</div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. CONTATO -->
+<footer id="contato">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>CONTATO</h4>
+      <p>WhatsApp: (33) 8817-2256</p>
+      <a href="https://wa.me/553388172256" target="_blank" class="btn-whats">FALAR NO WHATSAPP</a>
+    </div>
+    <div class="footer-col">
+      <h4>HORÁRIO</h4>
+      <p>Segunda a Sábado</p>
+      <p>09:00 às 19:00</p>
+    </div>
+    <div class="footer-col">
+      <h4>LOCAL</h4>
+      <p>Santa Maria do Suaçuí - MG</p>
+      <a href="https://www.google.com/maps/search/Santa+Maria+do+Suaçuí+MG" target="_blank">COMO CHEGAR →</a>
+    </div>
+  </div>
+  <div class="copy">
+    © 2026 BARBEARIA CHARLES LECO. TODOS OS DIREITOS RESERVADOS.
+  </div>
+</footer>
+
+</body>
+</html>
