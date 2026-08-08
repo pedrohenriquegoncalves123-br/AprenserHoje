@@ -3,125 +3,107 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sua Marca - Landing Page</title>
+<title>Barbearia Charles Leco</title>
 <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-  body { scroll-behavior: smooth; color: #333; }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+  body { scroll-behavior: smooth; background: #0a0a0a; color: #fff; }
 
-  /* HEADER */
   header {
-    position: fixed; top: 0; width: 100%;
-    background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
+    position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.85);
     display: flex; justify-content: space-between; align-items: center;
-    padding: 15px 8%; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 18px 8%; z-index: 1000; backdrop-filter: blur(8px);
   }
-  header h1 { color: #6a11cb; font-size: 24px; }
-  nav a { margin-left: 25px; text-decoration: none; color: #333; font-weight: 500; transition: 0.3s; }
-  nav a:hover { color: #6a11cb; }
+  header h1 { color: #d4af37; font-size: 26px; letter-spacing: 2px; }
+  nav a { margin-left: 25px; text-decoration: none; color: #fff; font-weight: 500; transition: 0.3s; }
+  nav a:hover { color: #d4af37; }
 
-  /* HERO */
   .hero {
-    height: 100vh; display: flex; align-items: center; justify-content: space-between;
-    padding: 0 8%; background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-    color: white; padding-top: 80px;
+    height: 100vh; display: flex; align-items: center;
+    padding: 0 8%; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+    url('https://img.freepik.com/free-photo/barber-cutting-hair-client-barbershop_23-2148240825.jpg') center/cover;
+    padding-top: 80px;
   }
   .hero-text { max-width: 50%; animation: fadeInLeft 1s ease; }
-  .hero-text h2 { font-size: 48px; margin-bottom: 20px; }
-  .hero-text p { font-size: 18px; margin-bottom: 30px; }
-  .btn {
-    background: white; color: #6a11cb; padding: 14px 30px; border-radius: 50px;
-    text-decoration: none; font-weight: bold; transition: 0.3s; display: inline-block;
+  .hero-text h2 { font-size: 52px; color: #d4af37; margin-bottom: 20px; }
+  .hero-text p { font-size: 18px; margin-bottom: 30px; color: #ddd; }
+  .btn-whats {
+    background: #25d366; color: white; padding: 16px 32px; border-radius: 50px;
+    text-decoration: none; font-weight: bold; font-size: 18px; transition: 0.3s;
+    display: inline-flex; align-items: center; gap: 10px;
   }
-  .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-  .hero-img { width: 45%; animation: fadeInRight 1s ease; }
-  .hero-img img { width: 100%; border-radius: 20px; }
+  .btn-whats:hover { transform: scale(1.05); box-shadow: 0 0 20px #25d366; }
 
-  /* SEÇÕES */
   section { padding: 100px 8%; }
-  .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+  .servicos { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
   .card {
-    background: white; padding: 30px; border-radius: 15px; text-align: center;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: 0.3s; opacity: 0; transform: translateY(30px);
+    background: #1a1a1a; padding: 30px; border-radius: 15px; text-align: center;
+    border: 1px solid #333; transition: 0.3s; opacity: 0; transform: translateY(30px);
   }
   .card.show { opacity: 1; transform: translateY(0); transition: all 0.6s ease; }
-  .card:hover { transform: translateY(-10px); }
-  .card img { width: 80px; margin-bottom: 15px; }
+  .card:hover { border-color: #d4af37; transform: translateY(-8px); }
+  .card h3 { color: #d4af37; margin-bottom: 10px; }
 
-  /* FOOTER */
-  footer { background: #222; color: white; text-align: center; padding: 40px 8%; }
+  .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+  .info-box { background: #1a1a1a; padding: 30px; border-radius: 15px; border: 1px solid #333; }
+  .info-box h3 { color: #d4af37; margin-bottom: 15px; }
+  .info-box p { line-height: 1.8; color: #ccc; }
 
-  /* ANIMAÇÕES */
+  footer { background: #000; text-align: center; padding: 40px 8%; color: #aaa; }
+
   @keyframes fadeInLeft { from {opacity:0; transform:translateX(-50px);} to {opacity:1; transform:translateX(0);} }
-  @keyframes fadeInRight { from {opacity:0; transform:translateX(50px);} to {opacity:1; transform:translateX(0);} }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>SuaMarca</h1>
+  <h1>CHARLES LECO</h1>
   <nav>
     <a href="#home">Home</a>
     <a href="#servicos">Serviços</a>
-    <a href="#contato">Contato</a>
+    <a href="#info">Info</a>
+    <a href="#agendar">Agendar</a>
   </nav>
 </header>
 
 <section class="hero" id="home">
   <div class="hero-text">
-    <h2>Transforme sua ideia em realidade</h2>
-    <p>Landing page moderna, rápida e com animações. Pronta pra converter visitantes em clientes.</p>
-    <a href="#contato" class="btn">Fale Conosco</a>
-  </div>
-  <div class="hero-img">
-    <img src="https://img.freepik.com/free-vector/web-development-programmers_52683-26669.jpg" alt="Web Development">
+    <h2>Estilo que marca sua presença</h2>
+    <p>Na Barbearia Charles Leco você encontra corte, barba e atendimento de alto nível. Agende seu horário agora.</p>
+    <a href="https://wa.me/553388172256?text=Olá!%20Gostaria%20de%20agendar%20um%20horário%20na%20Barbearia%20Charles%20Leco." 
+       target="_blank" class="btn-whats">
+       📲 Agendar pelo WhatsApp
+    </a>
   </div>
 </section>
 
 <section id="servicos">
-  <h2 style="text-align:center; font-size:36px; margin-bottom:50px;">Nossos Serviços</h2>
-  <div class="features">
+  <h2 style="text-align:center; font-size:36px; margin-bottom:50px; color:#d4af37;">Nossos Serviços</h2>
+  <div class="servicos">
     <div class="card">
-      <img src="https://img.freepik.com/free-vector/designers-team-working-design-process_74855-43871.jpg" alt="Design">
-      <h3>Design Moderno</h3>
-      <p>Layouts limpos e responsivos que se adaptam a qualquer tela.</p>
+      <h3>Corte Masculino</h3>
+      <p>R$ 40,00</p>
     </div>
     <div class="card">
-      <img src="https://img.freepik.com/free-vector/coding-workshop-concept-illustration_114360-8192.jpg" alt="Código">
-      <h3>Desenvolvimento</h3>
-      <p>Código limpo, rápido e otimizado para SEO e performance.</p>
+      <h3>Barba</h3>
+      <p>R$ 30,00</p>
     </div>
     <div class="card">
-      <img src="https://img.freepik.com/free-vector/marketing-strategy-concept_52683-26551.jpg" alt="Marketing">
-      <h3>Marketing Digital</h3>
-      <p>Estratégias para atrair mais clientes e aumentar suas vendas.</p>
+      <h3>Corte + Barba</h3>
+      <p>R$ 65,00</p>
     </div>
   </div>
 </section>
 
-<section id="contato" style="background:#f5f5f5;">
-  <h2 style="text-align:center; font-size:36px; margin-bottom:30px;">Entre em Contato</h2>
-  <form style="max-width:600px; margin:auto; display:flex; flex-direction:column; gap:15px;">
-    <input type="text" placeholder="Seu nome" style="padding:12px; border-radius:8px; border:1px solid #ccc;">
-    <input type="email" placeholder="Seu email" style="padding:12px; border-radius:8px; border:1px solid #ccc;">
-    <textarea placeholder="Sua mensagem" rows="4" style="padding:12px; border-radius:8px; border:1px solid #ccc;"></textarea>
-    <button class="btn" type="submit" style="border:none; cursor:pointer;">Enviar</button>
-  </form>
-</section>
-
-<footer>
-  <p>© 2026 SuaMarca. Todos os direitos reservados.</p>
-</footer>
-
-<script>
-  // Animação ao rolar
-  const cards = document.querySelectorAll('.card');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){ entry.target.classList.add('show'); }
-    });
-  }, {threshold: 0.2});
-  cards.forEach(card => observer.observe(card));
-</script>
-
-</body>
-</html>
+<section id="info" style="background:#111;">
+  <h2 style="text-align:center; font-size:36px; margin-bottom:50px; color:#d4af37;">Informações</h2>
+  <div class="info-grid">
+    <div class="info-box">
+      <h3>🕒 Horário de Funcionamento</h3>
+      <p><b>Segunda a Sábado:</b> 09:00 às 19:00</p>
+      <p><b>Domingo:</b> Fechado</p>
+    </div>
+    <div class="info-box">
+      <h3>📍 Localização</h3>
+      <p>Santa Maria do Suaçuí - MG</p>
+      <p>Atendimento com hora marcada</p>
+      <p><b>WhatsApp:</b> (33
