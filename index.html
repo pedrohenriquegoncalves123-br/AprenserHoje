@@ -1,140 +1,127 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aprenser</title>
-    <link rel="stylesheet" href="ProjetoAprenser2/css/estilo.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sua Marca - Landing Page</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+  body { scroll-behavior: smooth; color: #333; }
+
+  /* HEADER */
+  header {
+    position: fixed; top: 0; width: 100%;
+    background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 8%; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  header h1 { color: #6a11cb; font-size: 24px; }
+  nav a { margin-left: 25px; text-decoration: none; color: #333; font-weight: 500; transition: 0.3s; }
+  nav a:hover { color: #6a11cb; }
+
+  /* HERO */
+  .hero {
+    height: 100vh; display: flex; align-items: center; justify-content: space-between;
+    padding: 0 8%; background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    color: white; padding-top: 80px;
+  }
+  .hero-text { max-width: 50%; animation: fadeInLeft 1s ease; }
+  .hero-text h2 { font-size: 48px; margin-bottom: 20px; }
+  .hero-text p { font-size: 18px; margin-bottom: 30px; }
+  .btn {
+    background: white; color: #6a11cb; padding: 14px 30px; border-radius: 50px;
+    text-decoration: none; font-weight: bold; transition: 0.3s; display: inline-block;
+  }
+  .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+  .hero-img { width: 45%; animation: fadeInRight 1s ease; }
+  .hero-img img { width: 100%; border-radius: 20px; }
+
+  /* SEÇÕES */
+  section { padding: 100px 8%; }
+  .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+  .card {
+    background: white; padding: 30px; border-radius: 15px; text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: 0.3s; opacity: 0; transform: translateY(30px);
+  }
+  .card.show { opacity: 1; transform: translateY(0); transition: all 0.6s ease; }
+  .card:hover { transform: translateY(-10px); }
+  .card img { width: 80px; margin-bottom: 15px; }
+
+  /* FOOTER */
+  footer { background: #222; color: white; text-align: center; padding: 40px 8%; }
+
+  /* ANIMAÇÕES */
+  @keyframes fadeInLeft { from {opacity:0; transform:translateX(-50px);} to {opacity:1; transform:translateX(0);} }
+  @keyframes fadeInRight { from {opacity:0; transform:translateX(50px);} to {opacity:1; transform:translateX(0);} }
+</style>
 </head>
-
 <body>
-    <header class="cabecalho">
-        <div class="logo">
-        </div>
-        <nav class="barra-navegacao">
-            <label for="menu-toggle" class="icone-hamburguer">
-                &#9776
-            </label>
-            <input type="checkbox" id="menu-toggle" name="menu-toggle">
-            <ul class="menu">
-                <li><a href="#cursos" onclick="interacaoMenu()">Cursos</a></li>
-                <li><a href="#escolas" onclick="interacaoMenu()">Nossa Escola</a></li>
-                <li><a href=" #contatos" onclick="interacaoMenu()">Contatos</a></li>
-                <li><a href=" #outros" onclick="interacaoMenu()">Outros</a></li>
-            </ul>
-        </nav>
-    </header>
-    <section class=" hero-banner">
-        <div class="container">
-            <div class="bloco-texto">
-                <h1>
-                    <span>O saber é <br> o que transforma o <br> nosso SER</span>
-                </h1>
-                <a href="" class="saiba-mais">Saiba Mais</a>
-            </div>
-        </div>
-    </section>
-    <main class="conteudo-principal">
-        <section class="sessao-cursos" id="cursos">
-            <article class="title">
-                <h2 class="titulo-sessao">Principais Cursos</h2>
-            </article>
-            <div class="container-cards">
 
-                <article class="card card1"><!-- Card1 -->
-                    <div class="img-card-cursos"></div>
-                    <div class="conteudo-card">
-                        <h3>
-                            <strong>Design para Web</strong>
-                        </h3>
-                        <p class="texto-card">O curso Design para Web é perfeito para aqueles que
-                            desejam aprender a
-                            criar designs atraentes e funcionais para sites e aplicativos móveis.
-                        </p>
-                    </div>
-                </article>
+<header>
+  <h1>SuaMarca</h1>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#contato">Contato</a>
+  </nav>
+</header>
 
-                <article class="card card2"><!-- Card2 -->
-                    <div class="img-card-cursos"></div>
-                    <div class="conteudo-card">
-                        <h3>
-                            <strong>Front End Developer</strong>
-                        </h3>
-                        <p class="texto-card">Aprenda HTML, CSS e Javascript e crei interfaces ricas
-                            e semânticas para
-                            páginas web, aplicativos on-line ou até mesmo aplicações para aparelhos
-                            celulares</p>
-                    </div>
-                </article>
+<section class="hero" id="home">
+  <div class="hero-text">
+    <h2>Transforme sua ideia em realidade</h2>
+    <p>Landing page moderna, rápida e com animações. Pronta pra converter visitantes em clientes.</p>
+    <a href="#contato" class="btn">Fale Conosco</a>
+  </div>
+  <div class="hero-img">
+    <img src="https://img.freepik.com/free-vector/web-development-programmers_52683-26669.jpg" alt="Web Development">
+  </div>
+</section>
 
-                <article class="card card3">
-                    <div class="img-card-cursos"></div>
-                    <div class="conteudo-card">
-                        <h3>
-                            <strong>Back End Developer</strong>
-                        </h3>
-                        <p class="texto-card">Com este curso você vai dominar uma linguagem back-end
-                            a sua escolha, um
-                            sistema de banco de dados e aprenderá como funciona o protocolo HTTP na
-                            prática.</p>
-                    </div>
-                </article>
-            </div>
-            <a href="" class="ver-mais"><span>Ver Mais Cursos</span></a>
-        </section>
-        <section class="sessao-nossa-escola" id="escolas">
-            <div class="container">
-                <div class="content-nossa-escola">
-                    <h3 class="title-escola">Nossa Escola</h3>
-                    <p>
-                        Aprenda habilidades tecnológicas em demanda e alcance seus objetivos de
-                        carreira com a nossa
-                        escola de tecnologia online. Oferecemos uma ampla gama de cursos online,
-                        desde programação e
-                        desenvolvimento de software até design gráfico e análise de dados.
-                    </p>
+<section id="servicos">
+  <h2 style="text-align:center; font-size:36px; margin-bottom:50px;">Nossos Serviços</h2>
+  <div class="features">
+    <div class="card">
+      <img src="https://img.freepik.com/free-vector/designers-team-working-design-process_74855-43871.jpg" alt="Design">
+      <h3>Design Moderno</h3>
+      <p>Layouts limpos e responsivos que se adaptam a qualquer tela.</p>
+    </div>
+    <div class="card">
+      <img src="https://img.freepik.com/free-vector/coding-workshop-concept-illustration_114360-8192.jpg" alt="Código">
+      <h3>Desenvolvimento</h3>
+      <p>Código limpo, rápido e otimizado para SEO e performance.</p>
+    </div>
+    <div class="card">
+      <img src="https://img.freepik.com/free-vector/marketing-strategy-concept_52683-26551.jpg" alt="Marketing">
+      <h3>Marketing Digital</h3>
+      <p>Estratégias para atrair mais clientes e aumentar suas vendas.</p>
+    </div>
+  </div>
+</section>
 
-                    <p>
-                        Nossos instrutores experientes fornecerão a você um ambiente de aprendizado
-                        interativo
-                        e de suporte para ajudá-lo a adquirir as habilidades necessárias para ter
-                        sucesso em sua
-                        carreira. Inscreva-se agora e comece sua jornada para se tornar um
-                        profissional de tecnologia
-                        bem-sucedido.
-                    </p>
-                </div>
-            </div>
-        </section>
+<section id="contato" style="background:#f5f5f5;">
+  <h2 style="text-align:center; font-size:36px; margin-bottom:30px;">Entre em Contato</h2>
+  <form style="max-width:600px; margin:auto; display:flex; flex-direction:column; gap:15px;">
+    <input type="text" placeholder="Seu nome" style="padding:12px; border-radius:8px; border:1px solid #ccc;">
+    <input type="email" placeholder="Seu email" style="padding:12px; border-radius:8px; border:1px solid #ccc;">
+    <textarea placeholder="Sua mensagem" rows="4" style="padding:12px; border-radius:8px; border:1px solid #ccc;"></textarea>
+    <button class="btn" type="submit" style="border:none; cursor:pointer;">Enviar</button>
+  </form>
+</section>
 
-        <section class="sessao-contatos" id="contatos">
-            <article class="title">
-                <h2>Contatos</h2>
-            </article>
-            <div class="container-contatos">
-                <iframe class="mapa-iframe"
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14411.77896906702!2d-42.422345947082526!3d-18.187149602920666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1spt-BR!2sbr!4v1781209416246!5m2!1spt-BR!2sbr"
-                    style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-                <address class="informacoes-contato">
-                    <p><em>Av. da Liberdade, 1001</em></p>
-                    <p><em>Tel.: +351 21 123 456</em></p>
-                    <p><em>E-mail: contato@aprenser.com</em></p>
-                </address>
-            </div>
-        </section>
+<footer>
+  <p>© 2026 SuaMarca. Todos os direitos reservados.</p>
+</footer>
 
-        <footer class="rodape">
-            <p>&copy; Todos os direitos autorais</p>
-        </footer>
-    </main>
+<script>
+  // Animação ao rolar
+  const cards = document.querySelectorAll('.card');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){ entry.target.classList.add('show'); }
+    });
+  }, {threshold: 0.2});
+  cards.forEach(card => observer.observe(card));
+</script>
 
-    <script src="./js/interacao.js"></script>
 </body>
-
 </html>
